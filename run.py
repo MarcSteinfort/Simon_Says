@@ -22,17 +22,20 @@ def simon_says():
     colors = ['red', 'blue', 'green', 'yellow']
     sequence = []
 
-    print("Welcome to Simon Says!")
+    print("Welcome to Simon Says!")1
     time.sleep(1)
 
-    for color in sequence:
+    # Generate a random sequence of colors for Simon to say
+    for _ in range(5):  # Adjust the range as needed
+        color = random.choice(colors)
+        sequence.append(color)
         print(f"Simon says: {color}")
         time.sleep(1)
-        # Clear the console or screen
         clear_screen()
 
-    player_sequence = []
 
+    player_sequence = []
+    #Get the player´s Sequence
     for color in sequence:
         user_input = input("Your turn: ").lower()
         clear_screen()
