@@ -20,4 +20,12 @@ def simon_says():
     colors = ['red', 'blue', 'green', 'yellow']
     sequence = []
 
+    print("Welcome to Simon Says!")
+    time.sleep(1)
+
+        for color in sequence:
+        print(f"Simon says: {color}")
+        time.sleep(1)
+        # Clear the console or screen
+        clear_screen()
 
