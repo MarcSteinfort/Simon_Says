@@ -14,4 +14,10 @@ SHEET = GSPREAD_CLIENT.open('Simon_says_Highscores')
 
 scores = SHEET.worksheet('Highscores')
 
-data = sales.get_all_values()
+data = scores.get_all_values()
+
+def simon_says():
+    colors = ['red', 'blue', 'green', 'yellow']
+    sequence = []
+
+
