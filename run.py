@@ -45,3 +45,10 @@ def simon_says():
 
     else:
         print("Congratulations! You completed the sequence.")
+
+        def clear_screen():
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+if __name__ == "__main__":
+    simon_says()
