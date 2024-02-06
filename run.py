@@ -29,3 +29,19 @@ def simon_says():
         # Clear the console or screen
         clear_screen()
 
+    player_sequence = []
+
+    for color in sequence:
+        user_input = input("Your turn: ").lower()
+        clear_screen()
+
+        if user_input != color:
+            print("Wrong sequence! Game over.")
+            break
+        else:
+            print("Correct!")
+
+        player_sequence.append(user_input)
+
+    else:
+        print("Congratulations! You completed the sequence.")
