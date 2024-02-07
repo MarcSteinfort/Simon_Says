@@ -17,21 +17,38 @@ SHEET = GSPREAD_CLIENT.open('Simon_says_Highscores')
 scores = SHEET.worksheet('Highscores')
 
 data = scores.get_all_values()
-
-def simon_says():
-    colors = ['red', 'blue', 'green', 'yellow']
+colors = ['red', 'blue', 'green', 'yellow']
+def dynamic_seq(length):
+    
     sequence = []
-
-    print("Welcome to Simon Says!")1
-    time.sleep(1)
-
-    # Generate a random sequence of colors for Simon to say
-    for _ in range(5):  # Adjust the range as needed
+     # Generate a random sequence of colors for Simon to say
+    for _ in range(length):  # Adjust the range as needed
         color = random.choice(colors)
         sequence.append(color)
         print(f"Simon says: {color}")
         time.sleep(1)
-        clear_screen()
+    clear_screen()
+    print('next sequence')
+    time.sleep(interval)
+
+def simon_says():
+    # colors = ['red', 'blue', 'green', 'yellow']
+    # sequence = []
+
+    print("Welcome to Simon Says!")
+    time.sleep(1)
+
+    # Generate a random sequence of colors for Simon to say
+    # for _ in range(5):  # Adjust the range as needed
+    #     color = random.choice(colors)
+    #     sequence.append(color)
+    #     print(f"Simon says: {color}")
+    #     time.sleep(2)
+    #     clear_screen()
+    length = 1
+    while True:
+        dynamic_seq(length)
+        length += 1
 
 
     player_sequence = []
