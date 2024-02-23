@@ -20,7 +20,7 @@ scores = SHEET.worksheet('Highscores')
 colors = ['red', 'blue', 'green', 'yellow']
 
 def input_name():
-    name = input("Please enter your name: ")
+    name = input("Please enter your name: \n")
     return name
 
 def option1():
