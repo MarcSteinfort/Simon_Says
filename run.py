@@ -26,8 +26,7 @@ def input_name():
 def option1():
     print("This is your introduction for the game Simon says. I will show you different colors starting with one color. You need to name them in the same order as I did. Each successful round increases the difficulty by one color. You can choose the easy difficulty by pressing '2' and the hard difficulty by pressing '3'. Try to beat the Highscore and have good luck trying!")
 
-def dynamic_seq(length, interval):
-    sequence = []
+def dynamic_seq(length, interval, sequence):
     # Generate a random sequence of colors for Simon to say
     for _ in range(length):
         color = random.choice(colors)
@@ -36,20 +35,17 @@ def dynamic_seq(length, interval):
         time.sleep(interval)
         clear_screen()
     print('Next sequence')
+    return sequence
 
-def simon_says():
-    print("Welcome to Simon Says!")
-    time.sleep(1)
-
-    user_name = input_name()
-
+def simon_says(sequence, interval):
+    
     length = 1
     while True:
-        dynamic_seq(length, 1)
-        length += 1
+        sequence=dynamic_seq(1, interval, sequence)
+        
 
         # Get the player's Sequence
-        player_sequence = []
+        
         for _ in range(length):
             user_input = input("Your turn: ").lower()
             clear_screen()
@@ -60,20 +56,29 @@ def simon_says():
             else:
                 print("Correct!")
 
-            player_sequence.append(user_input)
+            
+        length += 1
 
         print("Congratulations! You completed the sequence.")
 
-def option2():
+def option2(sequence):
     print("Welcome to the easy mode. Good luck!")
-    simon_says()
+    interval=2
+    simon_says(sequence, interval)
 
-def option3():
+def option3(sequence):
     print("Welcome to the hard mode. Good luck!")
-    simon_says()
+    interval=1
+    simon_says(sequence, interval)
 
 def main():
     while True:
+        print("Welcome to Simon Says!")
+        time.sleep(1)
+
+        user_name = input_name()
+
+        sequence =[]
         print("\nMenu:")
         print("1. Introduction to the Game")
         print("2. Difficulty: Easy")
@@ -84,14 +89,17 @@ def main():
         if choice == '1':
             option1()
         elif choice == '2':
-            option2()
+            option2(sequence)
         elif choice == '3':
-            option3()
+            option3(sequence)
         elif choice == '4':
             print("Exiting...")
             break
         else:
             print("Invalid choice. Please enter a number between 1 and 4.")
+        user_choice=input("enter y/Y to continue: ")
+        if user_choice.lower()!="y":
+            break
 
 # Function to clear the screen
 def clear_screen():
