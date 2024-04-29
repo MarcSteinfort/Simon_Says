@@ -22,7 +22,7 @@ colors = ['red', 'blue', 'green', 'yellow']
 def input_name():
     name = input("Please enter your name: \n")
     return name
-
+#Introduction to the game
 def option1():
     print("This is your introduction for the game Simon says. I will show you different colors starting with one color. You need to name them in the same order as I did. Each successful round increases the difficulty by one color. You can choose the easy difficulty by pressing '2' and the hard difficulty by pressing '3'. Try to beat the Highscore and have good luck trying!")
 
@@ -45,7 +45,6 @@ def simon_says(sequence, interval):
         
 
         # Get the player's Sequence
-        
         for _ in range(length):
             user_input = input("Your turn: ").lower()
             clear_screen()
@@ -61,13 +60,19 @@ def simon_says(sequence, interval):
 
         print("Congratulations! You completed the sequence.")
 
+#Functions for the different difficulties
 def option2(sequence):
-    print("Welcome to the easy mode. Good luck!")
+    print("Welcome to the easymode. Good luck!")
     interval=2
     simon_says(sequence, interval)
 
 def option3(sequence):
-    print("Welcome to the hard mode. Good luck!")
+    print("Welcome to the normalmode. Good luck!")
+    interval=1
+    simon_says(sequence, interval)
+
+def option4(sequence):
+    print("Welcome to the hardmode. Good luck!")
     interval=1
     simon_says(sequence, interval)
 
@@ -82,8 +87,9 @@ def main():
         print("\nMenu:")
         print("1. Introduction to the Game")
         print("2. Difficulty: Easy")
-        print("3. Difficulty: Hard")
-        print("4. Exit")
+        print("3. Difficulty: Medium")
+        print("4. Difficulty: Hard")
+        print("5. Exit")
         choice = input("Enter your choice: ")
 
         if choice == '1':
@@ -92,11 +98,13 @@ def main():
             option2(sequence)
         elif choice == '3':
             option3(sequence)
-        elif choice == '4':
+        elif choice =='4':
+            option4(sequence)
+        elif choice == '5':
             print("Exiting...")
             break
         else:
-            print("Invalid choice. Please enter a number between 1 and 4.")
+            print("Invalid choice. Please enter a number between 1 and 5.")
         user_choice=input("enter y/Y to continue: ")
         if user_choice.lower()!="y":
             break
