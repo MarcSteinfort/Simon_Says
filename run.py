@@ -3,6 +3,9 @@ from google.oauth2.service_account import Credentials
 import time
 import random
 import os
+from colorama import just_fix_windows_console
+just_fix_windows_console()
+from colorama import Fore, Back, Style
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -19,12 +22,10 @@ scores = SHEET.worksheet('Highscores')
 
 colors = ['red', 'blue', 'green', 'yellow']
 
+#Function for the Name of the player. Will be the name which is displayed in the Highscores.git 
 def input_name():
     name = input("Please enter your name: \n")
     return name
-#Introduction to the game
-def option1():
-    print("This is your introduction for the game Simon says. I will show you different colors starting with one color. You need to name them in the same order as I did. Each successful round increases the difficulty by one color. You can choose the easy difficulty by pressing '2' and the hard difficulty by pressing '3'. Try to beat the Highscore and have good luck trying!")
 
 def dynamic_seq(length, interval, sequence):
     # Generate a random sequence of colors for Simon to say
@@ -37,6 +38,7 @@ def dynamic_seq(length, interval, sequence):
     print('Next sequence')
     return sequence
 
+
 def simon_says(sequence, interval):
     
     length = 1
@@ -44,7 +46,7 @@ def simon_says(sequence, interval):
         sequence=dynamic_seq(1, interval, sequence)
         
 
-        # Get the player's Sequence
+        # for loop to get the player's Sequence
         for _ in range(length):
             user_input = input("Your turn: ").lower()
             clear_screen()
@@ -60,7 +62,12 @@ def simon_says(sequence, interval):
 
         print("Congratulations! You completed the sequence.")
 
-#Functions for the different difficulties
+#Functions for the different difficulties and the Introduciton
+
+#Introduction to the game
+def option1():
+    print("This is your introduction for the game Simon says. I will show you different colors starting with one color. You need to name them in the same order as I did. Each successful round increases the difficulty by one color. You can choose the easy difficulty by pressing '2' and the hard difficulty by pressing '4'. If you want a mediocre challenge you can choose the medium difficulty by pressing '3'. Try to beat the Highscore and have good luck trying!")
+
 def option2(sequence):
     print("Welcome to the easymode. Good luck!")
     interval=2
@@ -73,9 +80,10 @@ def option3(sequence):
 
 def option4(sequence):
     print("Welcome to the hardmode. Good luck!")
-    interval=1
+    interval=0.5
     simon_says(sequence, interval)
 
+#function the Main Menu
 def main():
     while True:
         print("Welcome to Simon Says!")
