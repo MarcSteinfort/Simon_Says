@@ -21,6 +21,7 @@ SHEET = GSPREAD_CLIENT.open('Simon_says_Highscores')
 scores = SHEET.worksheet('Highscores')
 
 colors = ['red', 'blue', 'green', 'yellow']
+color_dict = {"red": Fore.RED, "green":Fore.GREEN, "yellow":Fore.YELLOW, "blue":Fore.BLUE}
 
 #Function for the Name of the player. Will be the name which is displayed in the Highscores.git 
 def input_name():
@@ -32,13 +33,13 @@ def dynamic_seq(length, interval, sequence):
     for _ in range(length):
         color = random.choice(colors)
         sequence.append(color)
-        print(f"Simon says: {color}")
+        print(f"Simon says: {color_dict[color]} colors {Style.RESET_ALL}")
         time.sleep(interval)
         clear_screen()
     print('Next sequence')
     return sequence
 
-
+# function to increase the Sequnce by one
 def simon_says(sequence, interval):
     
     length = 1
