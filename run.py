@@ -3,9 +3,9 @@ from google.oauth2.service_account import Credentials
 import time
 import random
 import os
+from colorama import Fore, Back, Style
 from colorama import just_fix_windows_console
 just_fix_windows_console()
-from colorama import Fore, Back, Style
 
 """
 This was copied from the Love Sandwiches Tutorial.
@@ -22,16 +22,20 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Simon_says_Highscores')
 
 colors = ['red', 'blue', 'green', 'yellow']
+"""
+I managed the different Colorsettings for the different difficulties
+with the help of a Friend, who is a professional.
+"""
 color_dict = {"red": Fore.RED, "green": Fore.GREEN, "yellow": Fore.YELLOW, "blue": Fore.BLUE}
 color_dict_back = {"red": Back.RED, "green": Back.GREEN, "yellow": Back.YELLOW, "blue": Back.BLUE}
 
 
 def input_name():
-    """
-    Function for the name of the player. Shown name in the Highscores.
+    """Function for the name of the player. Shown name in the Highscores.
     """
     name = input("Please enter your name: \n")
     return name
+
 
 def dynamic_seq(length, interval, sequence, difficulty):
     """
@@ -55,17 +59,15 @@ def dynamic_seq(length, interval, sequence, difficulty):
 
 
 def simon_says(sequence, interval, difficulty):
-    """
-    Function to increase the Sequence by one
+    """Function to increase the Sequence by one
     """
     length = 1
     while True:
-        sequence=dynamic_seq(1, interval, sequence, difficulty)
-        
+        sequence = dynamic_seq(1, interval, sequence, difficulty)
 
         # for loop to get the player's Sequence
         for _ in range(length):
-            user_input = input("Your turn: ").lower()
+            user_input = input("Your turn: \n").lower()
             clear_screen()
 
             if user_input != sequence[_]:
@@ -75,28 +77,27 @@ def simon_says(sequence, interval, difficulty):
             else:
                 print("Correct!")
 
-            
         length += 1
 
         print("Congratulations! You completed the sequence.")
 
+
 def send_data(highscore, name, difficulty):
-    """
-    Function to send data to worksheet
+    """Function to send data to worksheet
     """
     try:
         highscore_sheet = SHEET.worksheet(f"Highscores_{difficulty}")
         highscore_sheet.append_row([name, highscore])
         """
-        Tuple (first element Column index second order.)
+        Tuple (first element Column index second order).
         The Try/except Method got I from Stackflow.
-        The sort method I got from gspread.org
+        The sort method I got from gspread.org.
         """
-        highscore_sheet.sort((2,"des"))
+        highscore_sheet.sort((2, "des"))
         print(f"The Score was saved in Highscores_{difficulty}")
     except Exception as e:
         print("Failed to send data to the Worksheet!")
-        
+
 
 def get_data(difficulty):
     """
@@ -110,46 +111,54 @@ def get_data(difficulty):
         print("Failed to retrieve data from the Worksheet!")
         return None
 
+
 def print_highscore_list(highscore_list):
-    """
-    Function for printing the Highscore into the Terminal
+    """Function for printing the Highscore into the Terminal.
     """
     for element in highscore_list:
         print(element)
 
+
 def option1():
+    """Function for the Introduction and difficulties of the game.
     """
-    Function for the Introduction and difficulties of the game
-    """
-    print("This is your introduction for the game Simon says. I will show you different colors starting with one color. You need to name them in the same order as I did. Each successful round increases the difficulty by one color.")
-    print("You can choose the easy difficulty by pressing '2' and the hard difficulty by pressing '4'. If you want a mediocre challenge you can choose the medium difficulty by pressing '3'. Remember you need to type all previous called colors,")
-    print("in the right order. You need to type them seperately and you can confirm your decision with enter. If you want to check the Highscore you can press '5' to choose the Highscores you want to see. Try to beat the Highscore and have good luck trying!")
+    print("This is your introduction for the game Simon says.")
+    print("I will show you different colors starting with one color.")
+    print("You need to name them in the same order as I did. Each successful round increases the difficulty by one color.")
+    print("You can choose the easy difficulty by pressing '2' and the hard difficulty by pressing '4'.")
+    print("If you want a mediocre challenge you can choose the medium difficulty by pressing '3'.")
+    print("Remember you need to type all previous called colors, in the right order.")
+    print("You need to type them seperately and you can confirm your decision with enter.")
+    print("If you want to check the Highscore you can press '5' to choose the Highscores you want to see.")
+    print("Try to beat the Highscore and have good luck trying!")
+
 
 def option2(sequence):
     print("Welcome to the easymode. Good luck!")
-    interval=1
+    interval = 1
     simon_says(sequence, interval, "easy")
+
 
 def option3(sequence):
     print("Welcome to the normalmode. Good luck!")
-    interval=1
+    interval = 1
     simon_says(sequence, interval, "medium")
+
 
 def option4(sequence):
     print("Welcome to the hardmode. Good luck!")
-    interval=0.5
+    interval = 0.5
     simon_says(sequence, interval, "hard")
 
 
 def main():
-    """
-    Function for the Main Menu
+    """Function for the Main Menu
     """
     while True:
         print("Welcome to Simon Says!")
         time.sleep(1)
 
-        sequence =[]
+        sequence = []
         print("\nMainmenu:")
         print("1. Introduction to the Game")
         print("2. Difficulty: Easy")
@@ -157,20 +166,20 @@ def main():
         print("4. Difficulty: Hard")
         print("5. Give me the Highscores")
         print("6. Exit")
-        choice = input("Enter your choice: ")
+        choice = input("Enter your choice: \n")
 
         if choice == '1':
             option1()
             continue
         elif choice == '2':
             option2(sequence)
-            difficulty="easy"
+            difficulty = "easy"
         elif choice == '3':
             option3(sequence)
-            difficulty="medium"
-        elif choice =='4':
+            difficulty = "medium"
+        elif choice == '4':
             option4(sequence)
-            difficulty="hard"
+            difficulty = "hard"
         elif choice == '5':
             while True:
                 print("\nHigscore Menu:")
@@ -178,16 +187,16 @@ def main():
                 print("2. Highscores medium")
                 print("3. Highscores hard")
                 print("4. Return to Mainmenu")
-                highscore_choice = input("Enter your choice: ")
+                highscore_choice = input("Enter your choice: \n")
                 if highscore_choice == '1':
-                    print("Here is you Highscore for the easy difficulty/n")
-                    highscore_list=get_data("easy")
+                    print("Here is you Highscore for the easy difficulty \n")
+                    highscore_list = get_data("easy")
                 elif highscore_choice == '2':
-                    print("Here is you Highscore for the medium difficulty/n")
-                    highscore_list=get_data("medium")
+                    print("Here is you Highscore for the medium difficulty \n")
+                    highscore_list = get_data("medium")
                 elif highscore_choice == '3':
-                    print("Here is you Highscore for the medium difficulty/n")
-                    highscore_list=get_data("hard")
+                    print("Here is you Highscore for the medium difficulty \n")
+                    highscore_list = get_data("hard")
                 elif highscore_choice == '4':
                     print("Return to Main menu...")
                     break
@@ -198,7 +207,7 @@ def main():
                 clear_screen()
                 if highscore_list is not None:
                     print_highscore_list(highscore_list)
-                    input("Press enter to continue: ")
+                    input("Press enter to continue: \n")
 
             continue
         elif choice == '6':
@@ -209,8 +218,8 @@ def main():
             continue
         user_name = input_name()
         send_data(len(sequence)-1, user_name, difficulty)
-        user_choice=input("enter y/Y to continue: ")
-        if user_choice.lower()!="y":
+        user_choice = input("enter y/Y to continue: \n")
+        if user_choice.lower() != "y":
             clear_screen()
             break
 
@@ -222,6 +231,6 @@ def clear_screen():
     """
     os.system('cls' if os.name == 'nt' else 'clear')
 
+
 if __name__ == "__main__":
     main()
- 
