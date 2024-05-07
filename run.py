@@ -143,7 +143,8 @@ def main():
         print("2. Difficulty: Easy")
         print("3. Difficulty: Medium")
         print("4. Difficulty: Hard")
-        print("5. Exit")
+        print("5. Give me the Highscores")
+        print("6. Exit")
         choice = input("Enter your choice: ")
 
         if choice == '1':
@@ -159,12 +160,43 @@ def main():
             option4(sequence)
             difficulty="hard"
         elif choice == '5':
+            while True:
+                print("\nHigscore Menu:")
+                print("1. Highscores easy:")
+                print("2. Highscores medium")
+                print("3. Highscores hard")
+                print("4. Return to Mainmenu")
+                highscore_choice = input("Enter your choice: ")
+                if highscore_choice == '1':
+                    print("Here is you Highscore for the easy difficulty/n")
+                    highscore_list=get_data("easy")
+                elif highscore_choice == '2':
+                    print("Here is you Highscore for the medium difficulty/n")
+                    highscore_list=get_data("medium")
+                elif highscore_choice == '3':
+                    print("Here is you Highscore for the medium difficulty/n")
+                    highscore_list=get_data("hard")
+                elif highscore_choice == '4':
+                    print("Return to Main menu...")
+                    break
+                else:
+                    print("Invalid choice. Please enter a number between 1 and 4.")
+                    continue
+
+                clear_screen()
+                if highscore_list is not None:
+                    print_highscore_list(highscore_list)
+                    input("Press enter to continue: ")
+
+            continue
+        elif choice == '6':
             print("Exiting...")
             break
         else:
-            print("Invalid choice. Please enter a number between 1 and 5.")
+            print("Invalid choice. Please enter a number between 1 and 6.")
             continue
         user_name = input_name()
+        send_data(len(sequence)-1, user_name, difficulty)
         user_choice=input("enter y/Y to continue: ")
         if user_choice.lower()!="y":
             clear_screen()
