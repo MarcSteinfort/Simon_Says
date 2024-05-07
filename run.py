@@ -7,6 +7,9 @@ from colorama import just_fix_windows_console
 just_fix_windows_console()
 from colorama import Fore, Back, Style
 
+"""
+This was copied from the Love Sandwiches Tutorial.
+"""
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -25,14 +28,15 @@ color_dict_back = {"red": Back.RED, "green": Back.GREEN, "yellow": Back.YELLOW, 
 
 def input_name():
     """
-    Function for the name of the player. Shown name in the Highscores
+    Function for the name of the player. Shown name in the Highscores.
     """
     name = input("Please enter your name: \n")
     return name
 
 def dynamic_seq(length, interval, sequence, difficulty):
     """
-    Generate a random sequence of colors for Simon to say
+    Generate a random sequence of colors for Simon to say.
+    Via Stackflow I got support for the print statements
     """
     for _ in range(length):
         color = random.choice(colors)
@@ -52,7 +56,7 @@ def dynamic_seq(length, interval, sequence, difficulty):
 
 def simon_says(sequence, interval, difficulty):
     """
-    function to increase the Sequence by one
+    Function to increase the Sequence by one
     """
     length = 1
     while True:
@@ -78,13 +82,15 @@ def simon_says(sequence, interval, difficulty):
 
 def send_data(highscore, name, difficulty):
     """
-    
+    Function to send data to worksheet
     """
     try:
         highscore_sheet = SHEET.worksheet(f"Highscores_{difficulty}")
         highscore_sheet.append_row([name, highscore])
         """
         Tuple (first element Column index second order.)
+        The Try/except Method got I from Stackflow.
+        The sort method I got from gspread.org
         """
         highscore_sheet.sort((2,"des"))
         print(f"The Score was saved in Highscores_{difficulty}")
@@ -93,6 +99,10 @@ def send_data(highscore, name, difficulty):
         
 
 def get_data(difficulty):
+    """
+    Function to retrieve data from Worksheet.
+    The Try/except Method got I from Stackflow.
+    """
     try:
         highscore_list = SHEET.worksheet(f"Highscores_{difficulty}").get_all_values()
         return highscore_list
@@ -102,18 +112,18 @@ def get_data(difficulty):
 
 def print_highscore_list(highscore_list):
     """
-    Function to 
+    Function for printing the Highscore into the Terminal
     """
     for element in highscore_list:
         print(element)
 
 def option1():
     """
-    Introduction to the game
+    Function for the Introduction and difficulties of the game
     """
     print("This is your introduction for the game Simon says. I will show you different colors starting with one color. You need to name them in the same order as I did. Each successful round increases the difficulty by one color.")
     print("You can choose the easy difficulty by pressing '2' and the hard difficulty by pressing '4'. If you want a mediocre challenge you can choose the medium difficulty by pressing '3'. Remember you need to type all previous called colors,")
-    print("in the right order. You need to type them seperately and you can confirm your decision with enter. Try to beat the Highscore and have good luck trying!")
+    print("in the right order. You need to type them seperately and you can confirm your decision with enter. If you want to check the Highscore you can press '5' to choose the Highscores you want to see. Try to beat the Highscore and have good luck trying!")
 
 def option2(sequence):
     print("Welcome to the easymode. Good luck!")
@@ -130,12 +140,14 @@ def option4(sequence):
     interval=0.5
     simon_says(sequence, interval, "hard")
 
-#function the Main Menu
+
 def main():
+    """
+    Function for the Main Menu
+    """
     while True:
         print("Welcome to Simon Says!")
         time.sleep(1)
-
 
         sequence =[]
         print("\nMainmenu:")
@@ -202,8 +214,12 @@ def main():
             clear_screen()
             break
 
-# Function to clear the screen
+
 def clear_screen():
+    """
+    Function to clear the screen.
+    I had help from an AI for this function.
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 if __name__ == "__main__":
