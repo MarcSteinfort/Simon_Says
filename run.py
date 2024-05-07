@@ -66,6 +66,7 @@ def simon_says(sequence, interval, difficulty):
 
             if user_input != sequence[_]:
                 print("Wrong sequence! Game over.")
+                print(len(sequence)-1, "succesful rounds.")
                 return
             else:
                 print("Correct!")
@@ -75,6 +76,36 @@ def simon_says(sequence, interval, difficulty):
 
         print("Congratulations! You completed the sequence.")
 
+def send_data(highscore, name, difficulty):
+    """
+    
+    """
+    try:
+        highscore_sheet = SHEET.worksheet(f"Highscores_{difficulty}")
+        highscore_sheet.append_row([name, highscore])
+        """
+        Tuple (first element Column index second order.)
+        """
+        highscore_sheet.sort((2,"des"))
+        print(f"The Score was saved in Highscores_{difficulty}")
+    except Exception as e:
+        print("Failed to send data to the Worksheet!")
+        
+
+def get_data(difficulty):
+    try:
+        highscore_list = SHEET.worksheet(f"Highscores_{difficulty}").get_all_values()
+        return highscore_list
+    except Exception as e:
+        print("Failed to retrieve data from the Worksheet!")
+        return None
+
+def print_highscore_list(highscore_list):
+    """
+    Function to 
+    """
+    for element in highscore_list:
+        print(element)
 
 def option1():
     """
