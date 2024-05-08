@@ -42,12 +42,14 @@ With three different difficulties and every difficulty has its own rankings.
     Testing</li>
         <ol>
         <li>
-        Problems and Bugs encountered
-        </li>
+        Problems and Bugs encountered</li>
+        <li>
+        Validation</li>
+        </ol>
     <li>
     Deployment</li>
     <li>
-    Sources</li>
+    Credits</li>
 </ol>
 
 ## Features
