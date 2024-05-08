@@ -71,7 +71,7 @@ The game offers colorized Fonts for the colors which need to be named in order t
 ### Three different difficulties
 The game allows the user to play on three different difficulties. Each shortens the time the user have to memorize the new color in your sequence.<br>
 The user can play on "easy" difficulty. Which gives 1 second of time.<br>
-The user can play on "medium" difficulty. Which gives 1 second of time. But not the text itself is colored, the background is colored.<br>
+The user can play on "medium" difficulty. Which gives 1 second of time. But not the text itself is not colored, the background is colored.<br>
 The user can play on "hard difficulty. Which gives 0.5 seconds of time. The color does not match the text.
 
 ### Highscores
