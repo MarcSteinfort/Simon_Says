@@ -1,7 +1,7 @@
 # Simon says
 
-This is a fully deployed game of "Simon says", play against your Friends and everyone who got the url.
-Your task is to name the colors in the right order exactly as Simon says. With each round it will be one color more you need to name.
+This is a fully deployed game of "Simon says", play against your Friends and everyone who got the url: "https://simonsays-86786c34e700.herokuapp.com/".
+The goal is to name the colors in the right order exactly as Simon says. With each round it will be one color more to name.
 An example would be:
 <ol> 
     <li>Round: red 
@@ -15,8 +15,8 @@ An example would be:
     <li>Round: red, yellow, yellow, blue, green.
     </li>
 </ol>
-This continues indefinitely until you name a wrong order of colors. Your maximum of Rounds will be sent to the Highscore sheet.
-Try to beat your own highscore or try to beat the one of your friends. With three different difficulties and every difficulty has its own rankings.
+This continues indefinitely until a wrong order of colors were named. Your maximum of Rounds will be sent to the Highscore sheet.
+With three different difficulties and every difficulty has its own rankings.
 
 ## Table of content
 <ol>
@@ -52,41 +52,42 @@ Try to beat your own highscore or try to beat the one of your friends. With thre
 
 ## Features
 
-The game offers you various Features which will be available on the deployed version of the game, which are listed below.
+The game offers various features which will be available on the deployed version of the game, those are listed below.
 
 ### Menu
-The game allows you to navigate through a quick and simple Menu to get where you want to.
-<img src="" alt=""/>
+The game allows to navigate through a quick and simple Menu
+<img src="assets/images/Menu.png" alt="A Screenshot of the Main menu."/>
 
 ### Introduction
 The Game offers an quick Introduction on what to do and what the goal of the game is.
-<img src="" alt=""/>
+<img src="assets/images/Introduction.png" alt="A Screenshot of the Introduction."/>
 
 ### Colorama
-The game offers colorized Fonts for the colors which you need to name in order to continue with your run. This was able via the Colorama library.
-<img src="" alt=""/>
+The game offers colorized Fonts for the colors which need to be named in order to continue with the run. This is possible via the Colorama library.
+<img src="assets/images/Colorama.png" alt="A Screenshot of the colorized font."/>
 
 ### Three different difficulties
-The game allows you to play on three different difficulties. Each shortens the time you have to memorize the new color in your sequence.
-You can play on "easy" difficulty. Which gives you 1 second of time.
-You can play on "medium" difficulty. Which gives you 1 second of time.
-If you want the ultimate challenge, you can play on "hard" difficulty. This only gives you 0.3 seconds of time.
+The game allows the user to play on three different difficulties. Each shortens the time you have to memorize the new color in your sequence.
+The user can play on "easy" difficulty. Which gives you 1 second of time.
+The user can play on "medium" difficulty. Which gives you 1 second of time.
+The user can play on "hard difficulty. Which gives 0.5 seconds of time
 
 ### Highscores
-The game will track how many rounds you beat succesfully and rank them accordingly. Every difficulty has its own rankings.
+The game will track how many rounds the user beat succesfully and rank them accordingly. Every difficulty has its own rankings.
 
 ### Track your ranking.
-If you want to know who was better you or your friend. You can always check the Highscores in the Terminal.
+The user can always check the Highscores in the Terminal.
 
 ### Replay immediately
-If you lose, you can start a new Round immediately without the program exiting.
-<img src="" alt="" /> 
+In case of a lose, the user can start a new Round immediately without the program exiting.
+<img src="assets/images/Replay.png" alt="A Screenshot of the replaypossibility."/> 
 
 ## Testing
+<img src="assets/images/Flowchart Simon says.png" alt="A Screenshot of the Flowchart."/>
 
 I tested the program throughout various phases of its development.
-
-In order to keep this clean and because some of the features are implemented with a very short timelimit, I decided to record one full testing of every function of the program in a Video. The url will be provided here"Videolink".
+<img src="assets/images/Testing Excel.png" alt="A Screenshot of the Exceltable for testing." />
+In order to keep this clean and because some of the features are implemented with a very short timelimit, I decided to record one full testing of every function of the program in a Video. The url will be provided here"assets/images/Testing.mp4".
 
 ### Problems and Bugs encountered
 
@@ -103,8 +104,8 @@ The Function to clear the screen I used the AI Chatgpt, because I spent a lot of
 ### Validation
 
 The Code was tested for Validation and Readability with "https://pep8ci.herokuapp.com/"
-No Major issues were detected. Mostly the issue of having more than 79 characters in one line. Which I didn't change because it broke the program multiple times.
-<img src="" alt="" />
+No Major issues were detected.
+<img src="assets/images/CI Python Linter Validation.png" alt="A screenshot of the PEP8 Validation" />
 
 
 
@@ -128,3 +129,35 @@ The site was deployed using Code Institute's mock terminal for Heroku. The steps
     Link the Heroku app to the repository</li>
     <li>
     Click on Deploy</li>
+</ul>
+
+## Credits
+I just the following Programs and Website for this Project:
+
+<ul>
+<li>
+Heroku for deployment"https://dashboard.heroku.com/"</li>
+<li>
+Gitpod as my IDE"https://gitpod.io/"</li>
+<li>
+PEP8 for Validation</li>
+<li>
+Stackflow for tutorials"https://stackoverflow.com/"</li>
+<li>
+Colorama library for colorizing text.</li>
+<li>
+Guide for Colorama "https://pypi.org/project/colorama/"</li>
+<li>
+OBS for recording "https://obsproject.com/"</li>
+<li>
+Wondershare Filmora for rendering "https://filmora.wondershare.net/"</li>
+<li>
+Youtube for uploading "https://www.youtube.com/" </li>
+<li>
+Google Docs for the Highscores. "https://www.google.com/docs/"</li>
+<li>
+Chatgpt for the clear.screen function "https://chatgpt.com/auth/login"</li>
+
+My Mentor who advised me to use the Colorama library and helped me make this project work.
+A Friend of mine who helped me with the Colorama and determine the different colors to different difficulties of the game.
+
