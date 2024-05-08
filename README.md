@@ -69,10 +69,10 @@ The game offers colorized Fonts for the colors which need to be named in order t
 <img src="assets/images/Colorama.png" alt="A Screenshot of the colorized font."/>
 
 ### Three different difficulties
-The game allows the user to play on three different difficulties. Each shortens the time you have to memorize the new color in your sequence.
-The user can play on "easy" difficulty. Which gives you 1 second of time.
-The user can play on "medium" difficulty. Which gives you 1 second of time.
-The user can play on "hard difficulty. Which gives 0.5 seconds of time
+The game allows the user to play on three different difficulties. Each shortens the time the user have to memorize the new color in your sequence.<br>
+The user can play on "easy" difficulty. Which gives 1 second of time.<br>
+The user can play on "medium" difficulty. Which gives 1 second of time. But not the text itself is colored, the background is colored.<br>
+The user can play on "hard difficulty. Which gives 0.5 seconds of time. The color does not match the text.
 
 ### Highscores
 The game will track how many rounds the user beat succesfully and rank them accordingly. Every difficulty has its own rankings.
@@ -105,7 +105,7 @@ The Function to clear the screen I used the AI Chatgpt, because I spent a lot of
 
 ### Validation
 
-The Code was tested for Validation and Readability with "https://pep8ci.herokuapp.com/"
+The Code was tested for Validation and Readability with "https://pep8ci.herokuapp.com/"<br>
 No Major issues were detected.
 <img src="assets/images/CI Python Linter Validation.png" alt="A screenshot of the PEP8 Validation" />
 
@@ -134,7 +134,7 @@ The site was deployed using Code Institute's mock terminal for Heroku. The steps
 </ul>
 
 ## Credits
-I just the following Programs and Website for this Project:
+I just used the following Programs and Websites for this Project:
 
 <ul>
 <li>
