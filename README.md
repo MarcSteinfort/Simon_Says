@@ -87,7 +87,7 @@ In case of a lose, the user can start a new Round immediately without the progra
 
 I tested the program throughout various phases of its development.
 <img src="assets/images/Testing Excel.png" alt="A Screenshot of the Exceltable for testing." />
-In order to keep this clean and because some of the features are implemented with a very short timelimit, I decided to record one full testing of every function of the program in a Video. The url will be provided here"assets/images/Testing.mp4".
+In order to keep this clean and because some of the features are implemented with a very short timelimit, I decided to record one full testing of every function of the program in a Video. The url will be provided here"https://www.youtube.com/watch?v=yPjRFFwugZY".
 
 ### Problems and Bugs encountered
 
